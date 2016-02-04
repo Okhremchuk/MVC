@@ -6,6 +6,7 @@ class Config{
 
     public static function get($key){
         return isset(self::$settings[$key]) ? self::$settings[$key] : null;
+
     }
 
     public static function set($key, $value){
