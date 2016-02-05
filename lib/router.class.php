@@ -92,8 +92,6 @@ class Router{
 
         $path_parts = explode('/', $path);
 
-        //echo "<pre>"; print_r($path_parts);
-
         if(count($path_parts)){
 
             //Get route or language at first element
