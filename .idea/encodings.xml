@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$/.htaccess" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/config/config.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/controllers/pages.controller.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lang/ru.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lib/app.class.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lib/config.class.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lib/controller.class.php" charset="UTF-8" />
