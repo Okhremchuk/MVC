@@ -3,7 +3,7 @@
 class PagesController extends Controller{
 
     public function index(){
-        $this->data['test_content'] =  'Here will be a pages list';
+        $this->data['test_content'] = 'Here will be a pages list';
     }
 
     public function view(){
