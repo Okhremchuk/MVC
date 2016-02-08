@@ -25,7 +25,7 @@ class Message extends Model{
                   set name = '{$name}',
                       email = '{$email}',
                       message = '{$message}'
-                      where id = {id}
+                      where id = {$id}
             ";
         }
 
