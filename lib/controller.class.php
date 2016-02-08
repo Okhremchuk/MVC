@@ -1,6 +1,6 @@
 <?php
 
-class Controller {
+class Controller{
 
     protected $data;
 
@@ -11,24 +11,21 @@ class Controller {
     /**
      * @return mixed
      */
-    public function getData()
-    {
+    public function getData(){
         return $this->data;
     }
 
     /**
      * @return mixed
      */
-    public function getModel()
-    {
+    public function getModel(){
         return $this->model;
     }
 
     /**
      * @return mixed
      */
-    public function getParams()
-    {
+    public function getParams(){
         return $this->params;
     }
 
@@ -36,6 +33,5 @@ class Controller {
         $this->data = $data;
         $this->params = App::getRouter()->getParams();
     }
-
 
 }

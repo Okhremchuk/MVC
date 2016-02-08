@@ -1,6 +1,6 @@
 <?php
 
-class Router{
+class Router {
 
     protected $uri;
 
@@ -16,63 +16,55 @@ class Router{
 
     protected $language;
 
-
     /**
      * @return mixed
      */
-    public function getUri()
-    {
+    public function getUri(){
         return $this->uri;
     }
 
     /**
      * @return mixed
      */
-    public function getController()
-    {
+    public function getController(){
         return $this->controller;
     }
 
     /**
      * @return mixed
      */
-    public function getAction()
-    {
+    public function getAction(){
         return $this->action;
     }
 
     /**
      * @return mixed
      */
-    public function getParams()
-    {
+    public function getParams(){
         return $this->params;
     }
+
 
     /**
      * @return mixed
      */
-    public function getRoute()
-    {
+    public function getRoute(){
         return $this->route;
     }
 
     /**
      * @return mixed
      */
-    public function getMethodPrefix()
-    {
+    public function getMethodPrefix(){
         return $this->method_prefix;
     }
 
     /**
      * @return mixed
      */
-    public function getLanguage()
-    {
+    public function getLanguage(){
         return $this->language;
     }
-
 
     public function __construct($uri){
         $this->uri = urldecode(trim($uri, '/'));
@@ -87,35 +79,39 @@ class Router{
 
         $uri_parts = explode('?', $this->uri);
 
-        //Get path like /lng/controller/action/param1/param2/.../...
+        //Get path
         $path = $uri_parts[0];
 
         $path_parts = explode('/', $path);
 
-        if(count($path_parts)){
+        //echo "<pre>"; print_r($path_parts);
+
+        if ( count($path_parts) ){
 
             //Get route or language at first element
-            if(in_array(strtolower(current($path_parts)), array_keys($routes))){
+            if ( in_array(strtolower(current($path_parts)), array_keys($routes)) ){
                 $this->route = strtolower(current($path_parts));
-                $this->method_prefix = isset($routes[$this->route]) ? $routes[$this->route] : '';
+                $this->method_prefix = $routes[$this->route];
                 array_shift($path_parts);
-            } elseif (in_array(strtolower(current($path_parts)), Config::get('languages'))){
+            } elseif ( in_array(strtolower(current($path_parts)), Config::get('languages')) ){
                 $this->language = strtolower(current($path_parts));
                 array_shift($path_parts);
             }
             //Get controller - next element of array
-            if(current($path_parts)){
-                $this->action = strtolower(current($path_parts));
+            if ( current($path_parts) ){
+                $this->controller = strtolower(current($path_parts));
                 array_shift($path_parts);
             }
-            //Get actions
-            if(current($path_parts)){
+            //Get action
+            if ( current($path_parts) ){
                 $this->action = strtolower(current($path_parts));
                 array_shift($path_parts);
             }
 
-            //Get params
+            //Get params - all the rest
             $this->params = $path_parts;
+
         }
     }
+
 }

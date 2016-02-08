@@ -4,7 +4,7 @@ Config::set('site_name', 'Your Site Name');
 
 Config::set('languages', array('en', 'ru'));
 
-//Routes. Route name => method prefix
+//Routes. Route name =>method prefix
 Config::set('routes', array(
     'default' => '',
     'admin' => 'admin_',

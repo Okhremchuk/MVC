@@ -1,13 +1,13 @@
 <?php
 
 class App{
+
     protected static $router;
 
     /**
      * @return mixed
      */
-    public static function getRouter()
-    {
+    public static function getRouter(){
         return self::$router;
     }
 
@@ -21,7 +21,7 @@ class App{
 
         //Calling controller's method
         $controller_object = new $controller_class();
-        if(method_exists($controller_object, $controller_method)){
+        if ( method_exists($controller_object, $controller_method) ){
             //Controller's action may return a view path
             $view_path = $controller_object->$controller_method();
             $view_object = new View($controller_object->getData(), $view_path);
@@ -35,4 +35,5 @@ class App{
         $layout_view_object = new View(compact('content'), $layout_path);
         echo $layout_view_object->render();
     }
+
 }

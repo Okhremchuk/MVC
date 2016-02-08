@@ -8,7 +8,7 @@ class View{
 
     protected static function getDefaultViewPath(){
         $router = App::getRouter();
-        if(!$router){
+        if( !$router ){
             return false;
         }
         $controller_dir = $router->getController();
@@ -18,10 +18,10 @@ class View{
     }
 
     public function __construct($data = array(), $path = null){
-        if (!$path){
-
+        if ( !$path ){
+            $path = self::getDefaultViewPath();
         }
-        if(!file_exists($path)){
+        if ( !file_exists($path) ){
             throw new Exception('Template file is not found in path: '.$path);
         }
         $this->path = $path;
@@ -34,6 +34,8 @@ class View{
         ob_start();
         include($this->path);
         $content = ob_get_clean();
+
         return $content;
     }
+
 }
